@@ -31,6 +31,30 @@ The `Student` component receives props and displays them:
 - Tried using `defaultProps` to provide fallback values when props aren't passed
 - Note: This approach doesn't work in newer React versions (needs alternative solutions)
 
+### 6. Practical Example
+
+**In App.jsx (Parent):**
+```javascript
+<Student name="Spongebob" age="30" isStudent={true}/>
+<Student name="Patrick" age={42} isStudent={false}/>
+<Student name="Squidward" age={50} isStudent={false}/>
+<Student name="Sandy" age={27} isStudent={true}/>
+<Student />
+```
+
+**In Student.jsx (Child):**
+```javascript
+function Student(props){
+    return(
+        <div className="student">
+            <p>Name: {props.name}</p>
+            <p>Age: {props.age}</p>
+            <p>Student: {props.isStudent ? "Yes" : "No"}</p>
+        </div>
+    );
+}
+```
+
 ## Project Structure
 
 - `App.jsx`: Parent component that renders multiple `Student` components with different props
@@ -42,3 +66,4 @@ The `Student` component receives props and displays them:
 - **Component Reusability**: Same component (`Student`) used multiple times with different data
 - **Unidirectional Data Flow**: Data flows from parent to child, not the other way around
 - **Dynamic Content**: Props make components flexible and dynamic
+- **Type Flexibility**: Props can be strings, numbers, booleans, objects, arrays, or functions
